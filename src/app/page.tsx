@@ -181,13 +181,13 @@ export default async function HomePage() {
               {
                 title: "Partner or sponsor",
                 text: "Fund a program, sponsor an event or bring your company's people into the classroom.",
-                href: "/get-involved#partner",
+                href: "/get-involved/partner",
                 cta: "Become a partner",
               },
               {
                 title: "Volunteer",
                 text: "Share your experience as a mentor, judge, job-shadow host or classroom volunteer.",
-                href: "/get-involved#volunteer",
+                href: "/get-involved/volunteer",
                 cta: "Volunteer with us",
               },
               {

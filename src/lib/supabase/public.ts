@@ -15,3 +15,10 @@ export function createPublicClient() {
     },
   });
 }
+
+// Client for saving form submissions: no caching, no login.
+export function createFormClient() {
+  return createClient(supabaseUrl, supabaseKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}

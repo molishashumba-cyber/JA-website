@@ -51,13 +51,13 @@ export default async function ProgramPage(props: PageProps<"/programs/[slug]">) 
               </div>
             </dl>
             <div className="mt-6 flex flex-col gap-3">
-              <Button href="/get-involved#partner" variant="teal">
+              <Button href="/get-involved/partner" variant="teal">
                 Sponsor this program
               </Button>
-              <Button href="/get-involved#volunteer" variant="outlineDark">
+              <Button href="/get-involved/volunteer" variant="outlineDark">
                 Volunteer
               </Button>
-              <Button href="/contact" variant="outlineDark">
+              <Button href="/contact?topic=school" variant="outlineDark">
                 Bring it to my school
               </Button>
             </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
+import { SiteForm } from "@/components/SiteForm";
+import { CONTACT_TOPICS } from "@/lib/forms";
 import { getSiteSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -7,8 +9,17 @@ export const metadata: Metadata = {
   description: "Get in touch with Junior Achievement Zambia.",
 };
 
-export default async function ContactPage() {
-  const site = await getSiteSettings();
+// Links such as /contact?topic=school pre-select the topic.
+const TOPIC_LINKS: Record<string, (typeof CONTACT_TOPICS)[number]> = {
+  school: "Bring JA to my school",
+  partner: "Partnership or sponsorship",
+  volunteer: "Volunteering",
+  media: "Media enquiry",
+};
+
+export default async function ContactPage(props: PageProps<"/contact">) {
+  const [site, searchParams] = await Promise.all([getSiteSettings(), props.searchParams]);
+  const topic = typeof searchParams.topic === "string" ? TOPIC_LINKS[searchParams.topic] : undefined;
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.name}, ${site.address}`)}`;
 
   return (
@@ -78,16 +89,9 @@ export default async function ContactPage() {
             </dl>
           </div>
 
-          {/* The contact form arrives in Stage 5. */}
           <div id="form" className="rounded-3xl bg-pearl p-6 sm:p-8 md:col-span-3">
-            <h2 className="text-2xl font-extrabold text-dark">Send us a message</h2>
-            <p className="mt-3 text-lg text-dark/80">
-              Our online contact form is coming very soon. In the meantime, email us at{" "}
-              <a href={`mailto:${site.email}`} className="font-bold text-teal underline">
-                {site.email}
-              </a>{" "}
-              and we&apos;ll get back to you.
-            </p>
+            <h2 className="mb-6 text-2xl font-extrabold text-dark">Send us a message</h2>
+            <SiteForm type="contact" defaults={topic ? { topic } : undefined} />
           </div>
         </div>
       </section>

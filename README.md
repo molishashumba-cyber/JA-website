@@ -12,7 +12,7 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 | 2     | Home page design (placeholder content)                                         | Done            |
 | 3     | Content store (Supabase database + photo storage)                              | Done, connected |
 | 4     | All public pages                                                               | Done            |
-| 5     | Forms (contact, volunteer, partnership)                                        |                 |
+| 5     | Forms (contact, volunteer, partnership)                                        | Done            |
 | 6     | Admin area with secure login and submissions dashboard                         |                 |
 | 7     | Load real content                                                              |                 |
 | 8     | Polish, speed and accessibility testing, team guide                            |                 |
@@ -39,6 +39,16 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 Never share or add the **secret** / **service_role** key: the website doesn't need it.
 
 Tip: some ways of copying cut long text off at around 5,000 characters. Before clicking **Run**, scroll to the end of the pasted text and check it matches the end of the file. If it doesn't, paste the file in smaller parts, splitting only between statements (after a `;`).
+
+## Form email alerts (optional)
+
+Form submissions are always saved in Supabase (`form_submissions`). To also get an email for each one:
+
+1. Create a free account at [resend.com](https://resend.com) **using info@jazambia.org** (until a domain is verified, Resend only delivers to the account's own address).
+2. In Resend, go to **API Keys → Create API key** (permission: _Sending access_) and copy it.
+3. In Vercel, add the environment variable `RESEND_API_KEY` with that key (and optionally `FORM_ALERT_EMAIL` if alerts should go somewhere other than info@jazambia.org), then redeploy.
+
+Alerts come from `onboarding@resend.dev`; replying goes straight to the person who filled in the form. Once the jazambia.org domain is verified in Resend (later, when you're ready to touch domain settings), set `FORM_ALERT_FROM` to an address on your own domain.
 
 ## Brand
 

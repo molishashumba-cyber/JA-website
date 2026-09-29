@@ -18,10 +18,10 @@ export function CtaBand({
         <h2 className="max-w-2xl text-3xl leading-tight font-extrabold sm:text-4xl">{title}</h2>
         <p className="mt-3 max-w-2xl text-lg font-medium">{text}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Button href="/get-involved#partner" variant="dark">
+          <Button href="/get-involved/partner" variant="dark">
             Partner with us
           </Button>
-          <Button href="/get-involved#volunteer" variant="outlineDark">
+          <Button href="/get-involved/volunteer" variant="outlineDark">
             Volunteer
           </Button>
           <Button href="/get-involved#donate" variant="outlineDark">

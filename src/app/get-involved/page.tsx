@@ -70,7 +70,7 @@ export default async function GetInvolvedPage() {
                 </li>
               ))}
             </ul>
-            <Button href="/contact?topic=partner" variant="teal" className="mt-8">
+            <Button href="/get-involved/partner" variant="teal" className="mt-8">
               Talk to us about partnering
             </Button>
           </div>
@@ -112,7 +112,7 @@ export default async function GetInvolvedPage() {
                 </li>
               ))}
             </ul>
-            <Button href="/contact?topic=volunteer" variant="teal" className="mt-8">
+            <Button href="/get-involved/volunteer" variant="teal" className="mt-8">
               Sign up to volunteer
             </Button>
           </div>
