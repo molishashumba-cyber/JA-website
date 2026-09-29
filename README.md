@@ -38,6 +38,8 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 
 Never share or add the **secret** / **service_role** key: the website doesn't need it.
 
+Tip: some ways of copying cut long text off at around 5,000 characters. Before clicking **Run**, scroll to the end of the pasted text and check it matches the end of the file. If it doesn't, paste the file in smaller parts, splitting only between statements (after a `;`).
+
 ## Brand
 
 Colours and type follow the JA Worldwide Brand Guidelines 2026:
