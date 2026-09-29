@@ -13,7 +13,7 @@ function Tick() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="mt-0.5 size-5 shrink-0 text-teal"
+      className="mt-0.5 size-5 shrink-0 text-azure"
       fill="none"
       stroke="currentColor"
       strokeWidth="3"
@@ -57,7 +57,7 @@ export default async function GetInvolvedPage() {
       <section id="partner" className="scroll-mt-24 py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
           <div>
-            <p className="text-sm font-bold tracking-widest text-teal uppercase">Partner or sponsor</p>
+            <p className="text-sm font-bold tracking-widest text-azure uppercase">Partner or sponsor</p>
             <h2 className="mt-2 text-3xl leading-tight font-extrabold text-dark sm:text-4xl">
               Invest in Zambia&apos;s future workforce
             </h2>
@@ -101,7 +101,7 @@ export default async function GetInvolvedPage() {
             />
           </div>
           <div>
-            <p className="text-sm font-bold tracking-widest text-teal uppercase">Volunteer</p>
+            <p className="text-sm font-bold tracking-widest text-azure uppercase">Volunteer</p>
             <h2 className="mt-2 text-3xl leading-tight font-extrabold text-dark sm:text-4xl">Share what you know</h2>
             <p className="mt-4 text-lg text-dark/80">{content.volunteer.text}</p>
             <ul className="mt-6 space-y-3">
@@ -120,7 +120,7 @@ export default async function GetInvolvedPage() {
       </section>
 
       {/* Donate */}
-      <section id="donate" className="scroll-mt-24 bg-boundless py-16 text-white sm:py-24">
+      <section id="donate" className="scroll-mt-24 bg-dark py-16 text-white sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
           <div>
             <p className="text-sm font-bold tracking-widest text-lime uppercase">Donate</p>
@@ -138,7 +138,7 @@ export default async function GetInvolvedPage() {
             </ul>
             <p className="mt-6 text-sm text-white/70">
               Questions about giving? Email{" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-aqua underline">
+              <a href={`mailto:${site.email}`} className="font-semibold text-white underline">
                 {site.email}
               </a>
               .

@@ -36,20 +36,20 @@ export default async function ContactPage(props: PageProps<"/contact">) {
             <h2 className="text-2xl font-extrabold text-dark">Contact details</h2>
             <dl className="mt-6 space-y-5">
               <div>
-                <dt className="text-xs font-bold tracking-widest text-teal uppercase">Email</dt>
+                <dt className="text-xs font-bold tracking-widest text-azure uppercase">Email</dt>
                 <dd>
-                  <a href={`mailto:${site.email}`} className="text-lg font-semibold text-dark hover:text-teal">
+                  <a href={`mailto:${site.email}`} className="text-lg font-semibold text-dark hover:text-azure">
                     {site.email}
                   </a>
                 </dd>
               </div>
               {site.phone && (
                 <div>
-                  <dt className="text-xs font-bold tracking-widest text-teal uppercase">Phone</dt>
+                  <dt className="text-xs font-bold tracking-widest text-azure uppercase">Phone</dt>
                   <dd>
                     <a
                       href={`tel:${site.phone.replace(/\s/g, "")}`}
-                      className="text-lg font-semibold text-dark hover:text-teal"
+                      className="text-lg font-semibold text-dark hover:text-azure"
                     >
                       {site.phone}
                     </a>
@@ -57,21 +57,21 @@ export default async function ContactPage(props: PageProps<"/contact">) {
                 </div>
               )}
               <div>
-                <dt className="text-xs font-bold tracking-widest text-teal uppercase">Office</dt>
+                <dt className="text-xs font-bold tracking-widest text-azure uppercase">Office</dt>
                 <dd className="text-lg font-semibold text-dark">{site.address}</dd>
                 <dd>
                   <a
                     href={mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-bold text-teal hover:underline"
+                    className="text-sm font-bold text-azure hover:underline"
                   >
                     Open in Google Maps →
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-bold tracking-widest text-teal uppercase">Follow us</dt>
+                <dt className="text-xs font-bold tracking-widest text-azure uppercase">Follow us</dt>
                 <dd className="mt-2 flex flex-wrap gap-2">
                   {site.social.map((s) => (
                     <a
@@ -79,7 +79,7 @@ export default async function ContactPage(props: PageProps<"/contact">) {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-10 items-center rounded-full border-2 border-dark/15 px-4 text-sm font-bold text-dark hover:border-teal hover:text-teal"
+                      className="inline-flex min-h-10 items-center rounded-full border-2 border-dark/15 px-4 text-sm font-bold text-dark hover:border-teal hover:text-azure"
                     >
                       {s.label}
                     </a>

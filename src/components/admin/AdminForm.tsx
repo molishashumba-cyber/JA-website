@@ -56,7 +56,7 @@ export function AdminForm({ fields, values, action, submitLabel = "Save changes"
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-teal px-6 font-bold text-white hover:bg-teal-dark disabled:opacity-60 sm:w-auto"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-azure px-6 font-bold text-white hover:bg-boundless disabled:opacity-60 sm:w-auto"
         >
           {uploading > 0 ? "Uploading photo…" : pending ? "Saving…" : submitLabel}
         </button>
@@ -74,7 +74,7 @@ function FieldRow({ field, error, children }: { field: AdminField; error?: strin
           {field.required && <span aria-hidden="true"> *</span>}
         </label>
       )}
-      {field.hint && field.type !== "checkbox" && <p className="text-sm text-dark/60">{field.hint}</p>}
+      {field.hint && field.type !== "checkbox" && <p className="text-sm text-dark/75">{field.hint}</p>}
       {children}
       {error && (
         <p className="mt-1 flex items-start gap-2 text-sm font-semibold text-dark">
@@ -194,11 +194,11 @@ function ImageInput({
           {photo ? (
             <Image src={photo.src} alt="" fill sizes="192px" className="object-contain" unoptimized />
           ) : (
-            <span className="flex size-full items-center justify-center text-sm text-dark/50">No photo</span>
+            <span className="flex size-full items-center justify-center text-sm text-dark/75">No photo</span>
           )}
         </div>
         <div className="flex flex-1 flex-col gap-2">
-          <label className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border-2 border-teal px-4 font-bold text-teal hover:bg-teal hover:text-white">
+          <label className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border-2 border-azure px-4 font-bold text-azure hover:bg-azure hover:text-white">
             {busy ? "Uploading…" : photo ? "Replace photo" : "Upload photo"}
             <input
               type="file"
@@ -212,7 +212,7 @@ function ImageInput({
             <button
               type="button"
               onClick={() => setPhoto(null)}
-              className="min-h-11 rounded-full px-4 text-sm font-bold text-dark/70 hover:bg-pearl"
+              className="min-h-11 rounded-full px-4 text-sm font-bold text-dark/80 hover:bg-pearl"
             >
               Remove photo
             </button>
@@ -316,7 +316,7 @@ function GalleryInput({
               <button
                 type="button"
                 onClick={() => setPhotos((list) => list.filter((_, k) => k !== i))}
-                className="ml-auto rounded-md px-2 text-sm font-bold text-dark/70 hover:bg-pearl"
+                className="ml-auto rounded-md px-2 text-sm font-bold text-dark/80 hover:bg-pearl"
               >
                 Remove
               </button>
@@ -324,7 +324,7 @@ function GalleryInput({
           </li>
         ))}
       </ul>
-      <label className="mt-3 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border-2 border-teal px-4 font-bold text-teal hover:bg-teal hover:text-white">
+      <label className="mt-3 inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border-2 border-azure px-4 font-bold text-azure hover:bg-azure hover:text-white">
         {busy > 0 ? `Uploading ${busy}…` : "Add photos"}
         <input type="file" multiple accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={onFiles} />
       </label>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
+import { allowIndexing, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 // Montserrat is the JA Worldwide brand typeface.
@@ -10,6 +11,15 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: "Junior Achievement Zambia",
+  openGraph: {
+    type: "website",
+    siteName: "Junior Achievement Zambia",
+    locale: "en_ZM",
+  },
+  twitter: { card: "summary_large_image" },
+  robots: allowIndexing ? { index: true, follow: true } : { index: false, follow: false },
   title: {
     default: "Junior Achievement Zambia | The Future Starts Here",
     template: "%s | Junior Achievement Zambia",

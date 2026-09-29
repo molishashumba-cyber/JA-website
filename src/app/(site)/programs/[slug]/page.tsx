@@ -17,7 +17,11 @@ export async function generateStaticParams() {
 export async function generateMetadata(props: PageProps<"/programs/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const program = await getProgram(slug);
-  return { title: program?.name ?? "Program", description: program?.summary };
+  return {
+    title: program?.name ?? "Program",
+    description: program?.summary,
+    openGraph: program?.photo ? { images: [{ url: program.photo.src, alt: program.photo.alt }] } : undefined,
+  };
 }
 
 export default async function ProgramPage(props: PageProps<"/programs/[slug]">) {
@@ -46,7 +50,7 @@ export default async function ProgramPage(props: PageProps<"/programs/[slug]">) 
             <h2 className="text-xl font-extrabold text-dark">Bring {program.name} to more young people</h2>
             <dl className="mt-4 space-y-3">
               <div>
-                <dt className="text-xs font-bold tracking-widest text-teal uppercase">Who it&apos;s for</dt>
+                <dt className="text-xs font-bold tracking-widest text-azure uppercase">Who it&apos;s for</dt>
                 <dd className="font-semibold text-dark">{program.audience}</dd>
               </div>
             </dl>

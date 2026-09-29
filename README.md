@@ -14,8 +14,8 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 | 4     | All public pages                                                               | Done            |
 | 5     | Forms (contact, volunteer, partnership)                                        | Done            |
 | 6     | Admin area with secure login and submissions dashboard                         | Done            |
-| 7     | Load real content                                                              |                 |
-| 8     | Polish, speed and accessibility testing, team guide                            |                 |
+| 7     | Load real content                                                              | By the team     |
+| 8     | Polish, speed and accessibility testing, team guide                            | Done            |
 
 ## Where things live
 
@@ -67,6 +67,18 @@ Form submissions are always saved in Supabase (`form_submissions`). To also get 
 3. In Vercel, add the environment variable `RESEND_API_KEY` with that key (and optionally `FORM_ALERT_EMAIL` if alerts should go somewhere other than info@jazambia.org), then redeploy.
 
 Alerts come from `onboarding@resend.dev`; replying goes straight to the person who filled in the form. Once the jazambia.org domain is verified in Resend (later, when you're ready to touch domain settings), set `FORM_ALERT_FROM` to an address on your own domain.
+
+## Going live on jazambia.org (later)
+
+While the site is on its temporary Vercel address, search engines are asked **not** to list it, so it doesn't compete with the current jazambia.org. When you're ready to switch:
+
+1. In **Vercel → Settings → Domains**, add `jazambia.org` (and `www.jazambia.org`) and follow Vercel's instructions for the DNS records. **This is the step that changes your domain settings; keep your email (MX) records exactly as they are.**
+2. In **Vercel → Settings → Environment Variables**, add `NEXT_PUBLIC_SITE_URL` = `https://jazambia.org`, then redeploy. This lets Google list the site, and makes link previews and the sitemap use the real address.
+3. Submit `https://jazambia.org/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
+
+## Quality checks (Stage 8)
+
+Tested on a simulated mid-range phone on slow 4G (Lighthouse): performance 95–100, accessibility 100, best practices 100, SEO 100 on the main pages, about 220–280 KB per page. No WCAG 2.1 AA issues found by axe on public pages or admin screens, on phone and desktop sizes.
 
 ## Brand
 

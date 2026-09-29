@@ -5,18 +5,40 @@ import { NewsCard } from "@/components/NewsCard";
 import { PartnerLogo } from "@/components/PartnerLogo";
 import { ProgramCard } from "@/components/ProgramCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import { getHomeContent, getLatestNews, getPartners, getPrograms } from "@/lib/content";
+import { getHomeContent, getLatestNews, getPartners, getPrograms, getSiteSettings } from "@/lib/content";
+import { siteUrl } from "@/lib/site-url";
 
 export default async function HomePage() {
-  const [home, programs, news, partners] = await Promise.all([
+  const [home, programs, news, partners, site] = await Promise.all([
     getHomeContent(),
     getPrograms(),
     getLatestNews(3),
     getPartners(),
+    getSiteSettings(),
   ]);
+
+  // Organisation details for Google (structured data).
+  const organisation = {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    name: site.name,
+    alternateName: "JA Zambia",
+    slogan: site.tagline,
+    url: siteUrl,
+    logo: `${siteUrl}/brand/symbol.png`,
+    email: site.email,
+    ...(site.phone ? { telephone: site.phone } : {}),
+    address: { "@type": "PostalAddress", streetAddress: site.address, addressCountry: "ZM" },
+    sameAs: site.social.map((s) => s.url),
+    parentOrganization: { "@type": "NGO", name: "JA Worldwide", url: "https://jaworldwide.org" },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organisation).replace(/</g, "\\u003c") }}
+      />
       {/* Hero */}
       <section className="relative isolate overflow-hidden bg-dark text-white">
         <Image
@@ -73,7 +95,7 @@ export default async function HomePage() {
           <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-dark/10 lg:grid-cols-4">
             {home.stats.map((stat) => (
               <div key={stat.label} className="flex flex-col-reverse bg-white px-4 py-8 text-center sm:py-12">
-                <dt className="mt-1 text-sm font-semibold text-dark/70 sm:text-base">{stat.label}</dt>
+                <dt className="mt-1 text-sm font-semibold text-dark/80 sm:text-base">{stat.label}</dt>
                 <dd className="text-3xl font-extrabold text-teal sm:text-5xl">{stat.value}</dd>
               </div>
             ))}
@@ -104,7 +126,7 @@ export default async function HomePage() {
               </li>
             ))}
           </ul>
-          <p className="mt-2 text-sm font-semibold text-dark/60 sm:hidden">
+          <p className="mt-2 text-sm font-semibold text-dark/75 sm:hidden">
             Swipe to see all {programs.length} programs →
           </p>
           <div className="mt-6 sm:hidden">

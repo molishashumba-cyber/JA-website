@@ -35,7 +35,7 @@ export function PersonCard({ person }: { person: Person }) {
       </div>
       <div className="p-4">
         <h3 className="text-lg leading-snug font-extrabold text-dark">{person.name}</h3>
-        <p className="text-sm font-semibold text-teal">{person.role}</p>
+        <p className="text-sm font-semibold text-azure">{person.role}</p>
         {person.bio && <p className="mt-2 text-sm text-dark/75">{person.bio}</p>}
       </div>
     </div>

@@ -4,7 +4,7 @@ import type { Partner } from "@/lib/types";
 export function PartnerLogo({ partner }: { partner: Partner }) {
   if (!partner.logo) {
     return (
-      <div className="flex h-24 items-center justify-center rounded-xl border-2 border-dashed border-dark/15 px-2 text-center text-sm font-semibold text-dark/50">
+      <div className="flex h-24 items-center justify-center rounded-xl border-2 border-dashed border-dark/15 px-2 text-center text-sm font-semibold text-dark/75">
         {partner.name}
       </div>
     );

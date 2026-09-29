@@ -26,11 +26,11 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-teal font-bold text-white hover:bg-teal-dark disabled:opacity-60"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-azure font-bold text-white hover:bg-boundless disabled:opacity-60"
       >
         {pending ? "Logging in…" : "Log in"}
       </button>
-      <p className="text-sm text-dark/60">Forgotten your password? Ask a JA Zambia admin to reset it for you.</p>
+      <p className="text-sm text-dark/75">Forgotten your password? Ask a JA Zambia admin to reset it for you.</p>
     </form>
   );
 }

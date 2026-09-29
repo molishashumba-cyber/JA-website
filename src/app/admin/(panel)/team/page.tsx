@@ -29,11 +29,11 @@ export default async function TeamPage(props: PageProps<"/admin/team">) {
             className="flex flex-wrap items-center gap-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-dark/10"
           >
             <span className="font-bold text-dark">{s.email}</span>
-            <span className="rounded-full bg-pearl px-2 py-0.5 text-xs font-bold text-dark/70">
+            <span className="rounded-full bg-pearl px-2 py-0.5 text-xs font-bold text-dark/80">
               {s.role === "admin" ? "Admin" : "Editor"}
             </span>
             {s.user_id === user.id ? (
-              <span className="ml-auto text-sm text-dark/60">You</span>
+              <span className="ml-auto text-sm text-dark/75">You</span>
             ) : (
               <form action={removeAccess.bind(null, s.user_id)} className="ml-auto">
                 <ConfirmButton small message={`Remove admin-area access for ${s.email}?`}>
@@ -57,7 +57,7 @@ export default async function TeamPage(props: PageProps<"/admin/team">) {
             Send them the website&apos;s /admin link and their temporary password. They can change it under My account.
           </li>
         </ol>
-        <p className="mt-3 text-sm text-dark/60">
+        <p className="mt-3 text-sm text-dark/75">
           <strong>Editors</strong> can edit everything and manage submissions. <strong>Admins</strong> can also delete
           submissions and manage team access.
         </p>

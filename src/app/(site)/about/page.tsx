@@ -51,7 +51,7 @@ export default async function AboutPage() {
           Mission and vision
         </h2>
         <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-2">
-          <div className="rounded-3xl bg-teal p-8 sm:p-10">
+          <div className="rounded-3xl bg-azure p-8 sm:p-10">
             <p className="text-sm font-bold tracking-widest uppercase">Our mission</p>
             <p className="mt-3 text-2xl leading-snug font-extrabold sm:text-3xl">{about.mission}</p>
           </div>

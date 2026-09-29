@@ -26,8 +26,8 @@ export function Header() {
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`rounded-full px-3 py-2 text-sm font-semibold transition-colors hover:bg-pearl hover:text-teal ${
-                      active ? "text-teal" : "text-dark"
+                    className={`rounded-full px-3 py-2 text-sm font-semibold transition-colors hover:bg-pearl hover:text-azure ${
+                      active ? "text-azure" : "text-dark"
                     }`}
                   >
                     {item.label}
@@ -75,7 +75,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex min-h-12 items-center rounded-xl px-3 text-lg font-semibold text-dark hover:bg-pearl hover:text-teal"
+                  className="flex min-h-12 items-center rounded-xl px-3 text-lg font-semibold text-dark hover:bg-pearl hover:text-azure"
                 >
                   {item.label}
                 </Link>

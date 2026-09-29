@@ -27,10 +27,10 @@ export function NewsCard({ post }: { post: NewsPost }) {
         )}
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <p className="text-xs font-bold tracking-widest text-teal uppercase">
+        <p className="text-xs font-bold tracking-widest text-azure uppercase">
           {post.category} · <time dateTime={post.date}>{date}</time>
         </p>
-        <h3 className="mt-2 text-lg leading-snug font-extrabold text-dark group-hover:text-teal">{post.title}</h3>
+        <h3 className="mt-2 text-lg leading-snug font-extrabold text-dark group-hover:text-azure">{post.title}</h3>
         <p className="mt-2 text-dark/75">{post.excerpt}</p>
       </div>
     </Link>

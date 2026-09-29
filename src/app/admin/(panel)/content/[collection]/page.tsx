@@ -32,7 +32,7 @@ export default async function CollectionListPage(props: PageProps<"/admin/conten
         actions={
           <Link
             href={`/admin/content/${collection.key}/new`}
-            className="inline-flex min-h-11 items-center rounded-full bg-teal px-5 font-bold text-white hover:bg-teal-dark"
+            className="inline-flex min-h-11 items-center rounded-full bg-azure px-5 font-bold text-white hover:bg-boundless"
           >
             + Add {collection.singular}
           </Link>
@@ -64,10 +64,10 @@ export default async function CollectionListPage(props: PageProps<"/admin/conten
                     {String(row[collection.titleField] ?? "Untitled")}
                   </span>
                   {collection.subtitle && (
-                    <span className="block truncate text-sm text-dark/60">{collection.subtitle(row)}</span>
+                    <span className="block truncate text-sm text-dark/75">{collection.subtitle(row)}</span>
                   )}
                 </span>
-                <span className="text-sm font-bold text-teal">Edit →</span>
+                <span className="text-sm font-bold text-azure">Edit →</span>
               </Link>
             </li>
           );

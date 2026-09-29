@@ -3,7 +3,11 @@ import { PageHero } from "@/components/PageHero";
 import { ProgramCard } from "@/components/ProgramCard";
 import { getPrograms } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Programs" };
+export const metadata: Metadata = {
+  title: "Programs",
+  description:
+    "Cha-Ching, the JA Company Program, Company of the Year, Girls LEAD Camp, Job Shadows, Innovation Camps and more: hands-on programs for young Zambians.",
+};
 
 export default async function ProgramsPage() {
   const programs = await getPrograms();

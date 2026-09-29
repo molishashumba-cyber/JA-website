@@ -17,7 +17,9 @@ export async function generateMetadata(props: PageProps<"/news/[slug]">): Promis
   return {
     title: post?.title ?? "News",
     description: post?.excerpt,
-    openGraph: post ? { images: [post.photo.src] } : undefined,
+    openGraph: post
+      ? { type: "article", publishedTime: post.date, images: [{ url: post.photo.src, alt: post.photo.alt }] }
+      : undefined,
   };
 }
 

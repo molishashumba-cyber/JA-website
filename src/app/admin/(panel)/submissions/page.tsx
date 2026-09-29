@@ -74,7 +74,7 @@ export default async function SubmissionsPage(props: PageProps<"/admin/submissio
         actions={
           <a
             href={`/admin/export?${exportParams}`}
-            className="inline-flex min-h-11 items-center rounded-full border-2 border-teal px-4 font-bold text-teal hover:bg-teal hover:text-white"
+            className="inline-flex min-h-11 items-center rounded-full border-2 border-azure px-4 font-bold text-azure hover:bg-azure hover:text-white"
           >
             Download spreadsheet (CSV)
           </a>
@@ -117,30 +117,30 @@ export default async function SubmissionsPage(props: PageProps<"/admin/submissio
               <details>
                 <summary className="flex cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 p-4">
                   <span
-                    className={`rounded-full px-2 py-0.5 text-xs font-bold ${s.status === "new" ? "bg-teal text-white" : "bg-pearl text-dark/70"}`}
+                    className={`rounded-full px-2 py-0.5 text-xs font-bold ${s.status === "new" ? "bg-azure text-white" : "bg-pearl text-dark/80"}`}
                   >
                     {s.status === "new" ? "New" : "Handled"}
                   </span>
-                  <span className="text-xs font-bold tracking-widest text-teal uppercase">{TYPES[s.form_type]}</span>
+                  <span className="text-xs font-bold tracking-widest text-azure uppercase">{TYPES[s.form_type]}</span>
                   <span className="font-bold text-dark">{s.name}</span>
-                  <span className="text-sm text-dark/60">{s.organisation}</span>
-                  <span className="ml-auto text-sm text-dark/60">{when(s.created_at)}</span>
+                  <span className="text-sm text-dark/75">{s.organisation}</span>
+                  <span className="ml-auto text-sm text-dark/75">{when(s.created_at)}</span>
                 </summary>
                 <div className="border-t border-dark/10 p-4">
                   <dl className="grid gap-3 sm:grid-cols-2">
                     <div>
-                      <dt className="text-xs font-bold text-dark/60 uppercase">Email</dt>
+                      <dt className="text-xs font-bold text-dark/75 uppercase">Email</dt>
                       <dd>
-                        <a href={`mailto:${s.email}`} className="font-semibold text-teal underline">
+                        <a href={`mailto:${s.email}`} className="font-semibold text-azure underline">
                           {s.email}
                         </a>
                       </dd>
                     </div>
                     {s.phone && (
                       <div>
-                        <dt className="text-xs font-bold text-dark/60 uppercase">Phone</dt>
+                        <dt className="text-xs font-bold text-dark/75 uppercase">Phone</dt>
                         <dd>
-                          <a href={`tel:${s.phone.replace(/\s/g, "")}`} className="font-semibold text-teal underline">
+                          <a href={`tel:${s.phone.replace(/\s/g, "")}`} className="font-semibold text-azure underline">
                             {s.phone}
                           </a>
                         </dd>
@@ -149,7 +149,7 @@ export default async function SubmissionsPage(props: PageProps<"/admin/submissio
                     {Object.entries(s.details ?? {}).map(([k, v]) =>
                       (Array.isArray(v) ? v.length : v) ? (
                         <div key={k}>
-                          <dt className="text-xs font-bold text-dark/60 uppercase">{labels[k] ?? k}</dt>
+                          <dt className="text-xs font-bold text-dark/75 uppercase">{labels[k] ?? k}</dt>
                           <dd className="text-dark">{Array.isArray(v) ? v.join(", ") : v}</dd>
                         </div>
                       ) : null,
@@ -157,14 +157,14 @@ export default async function SubmissionsPage(props: PageProps<"/admin/submissio
                   </dl>
                   {s.message && (
                     <div className="mt-4">
-                      <p className="text-xs font-bold text-dark/60 uppercase">Message</p>
+                      <p className="text-xs font-bold text-dark/75 uppercase">Message</p>
                       <p className="mt-1 whitespace-pre-line text-dark">{s.message}</p>
                     </div>
                   )}
                   <div className="mt-4 flex flex-wrap gap-2">
                     <a
                       href={`mailto:${s.email}?subject=${encodeURIComponent("Re: your message to JA Zambia")}`}
-                      className="inline-flex min-h-9 items-center rounded-full bg-teal px-4 text-sm font-bold text-white"
+                      className="inline-flex min-h-9 items-center rounded-full bg-azure px-4 text-sm font-bold text-white"
                     >
                       Reply by email
                     </a>
@@ -195,7 +195,7 @@ export default async function SubmissionsPage(props: PageProps<"/admin/submissio
               ← Newer
             </Link>
           )}
-          <span className="text-sm text-dark/60">
+          <span className="text-sm text-dark/75">
             Page {page} of {Math.ceil((count ?? 0) / PAGE_SIZE)}
           </span>
           {page * PAGE_SIZE < (count ?? 0) && (

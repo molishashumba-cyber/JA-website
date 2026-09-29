@@ -8,7 +8,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-white">
+    <footer className="border-t-4 border-lime bg-dark text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
           <Logo variant="white" className="h-12 w-auto" />

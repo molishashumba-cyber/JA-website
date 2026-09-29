@@ -32,7 +32,7 @@ export default async function ImpactPage() {
           <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-dark/10 lg:grid-cols-4">
             {home.stats.map((stat) => (
               <div key={stat.label} className="flex flex-col-reverse bg-white px-4 py-8 text-center sm:py-12">
-                <dt className="mt-1 text-sm font-semibold text-dark/70 sm:text-base">{stat.label}</dt>
+                <dt className="mt-1 text-sm font-semibold text-dark/80 sm:text-base">{stat.label}</dt>
                 <dd className="text-3xl font-extrabold text-teal sm:text-5xl">{stat.value}</dd>
               </div>
             ))}
@@ -69,11 +69,11 @@ export default async function ImpactPage() {
                         Sample story
                       </span>
                     )}
-                    <p className="text-sm font-bold tracking-widest text-teal uppercase">{story.title}</p>
+                    <p className="text-sm font-bold tracking-widest text-azure uppercase">{story.title}</p>
                     <blockquote className="mt-3 text-xl leading-snug font-bold text-dark">
                       &ldquo;{story.quote}&rdquo;
                     </blockquote>
-                    <figcaption className="mt-3 font-semibold text-dark/70">{story.person}</figcaption>
+                    <figcaption className="mt-3 font-semibold text-dark/80">{story.person}</figcaption>
                     {story.body && <p className="mt-3 text-dark/75">{story.body}</p>}
                   </figure>
                 </li>

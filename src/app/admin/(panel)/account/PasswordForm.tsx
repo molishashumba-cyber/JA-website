@@ -12,7 +12,7 @@ export function PasswordForm() {
     <form action={action} className="mt-4 space-y-4">
       <label className="block font-bold text-dark">
         New password
-        <span className="block text-sm font-normal text-dark/60">At least 10 characters.</span>
+        <span className="block text-sm font-normal text-dark/75">At least 10 characters.</span>
         <input
           name="password"
           type="password"
@@ -34,7 +34,7 @@ export function PasswordForm() {
       )}
       <button
         disabled={pending}
-        className="min-h-11 rounded-full bg-teal px-5 font-bold text-white hover:bg-teal-dark disabled:opacity-60"
+        className="min-h-11 rounded-full bg-azure px-5 font-bold text-white hover:bg-boundless disabled:opacity-60"
       >
         {pending ? "Saving…" : "Change password"}
       </button>

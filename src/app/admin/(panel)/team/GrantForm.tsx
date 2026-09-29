@@ -25,7 +25,7 @@ export function GrantForm() {
       </label>
       <button
         disabled={pending}
-        className="min-h-11 rounded-full bg-teal px-5 font-bold text-white hover:bg-teal-dark disabled:opacity-60"
+        className="min-h-11 rounded-full bg-azure px-5 font-bold text-white hover:bg-boundless disabled:opacity-60"
       >
         {pending ? "Giving access…" : "Give access"}
       </button>

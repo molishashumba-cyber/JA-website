@@ -31,7 +31,7 @@ export default async function EditItemPage(props: PageProps<"/admin/content/[col
         back={{ href: `/admin/content/${collection.key}`, label: collection.label }}
         actions={
           publicPath && (
-            <Link href={publicPath} target="_blank" className="text-sm font-bold text-teal hover:underline">
+            <Link href={publicPath} target="_blank" className="text-sm font-bold text-azure hover:underline">
               View on website ↗
             </Link>
           )

@@ -30,13 +30,13 @@ export default async function PanelLayout({ children }: LayoutProps<"/admin">) {
     <nav aria-label="Admin" className="space-y-5">
       {groups.map((g) => (
         <div key={g.title}>
-          <p className="px-3 text-xs font-bold tracking-widest text-dark/50 uppercase">{g.title}</p>
+          <p className="px-3 text-xs font-bold tracking-widest text-dark/75 uppercase">{g.title}</p>
           <ul className="mt-1">
             {g.links.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="flex min-h-10 items-center rounded-lg px-3 font-semibold text-dark hover:bg-pearl hover:text-teal"
+                  className="flex min-h-10 items-center rounded-lg px-3 font-semibold text-dark hover:bg-pearl hover:text-azure"
                 >
                   {l.label}
                 </Link>
@@ -60,7 +60,7 @@ export default async function PanelLayout({ children }: LayoutProps<"/admin">) {
             <Link
               href="/"
               target="_blank"
-              className="hidden min-h-10 items-center rounded-full px-3 text-sm font-bold text-teal hover:bg-pearl sm:inline-flex"
+              className="hidden min-h-10 items-center rounded-full px-3 text-sm font-bold text-azure hover:bg-pearl sm:inline-flex"
             >
               View website ↗
             </Link>
@@ -83,7 +83,7 @@ export default async function PanelLayout({ children }: LayoutProps<"/admin">) {
             <div className="border-t border-dark/10 p-3">{nav}</div>
           </details>
           {children}
-          <p className="mt-10 text-sm text-dark/50">
+          <p className="mt-10 text-sm text-dark/75">
             Logged in as {user.email} ({role})
           </p>
         </div>

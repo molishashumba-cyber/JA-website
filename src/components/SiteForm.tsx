@@ -7,7 +7,7 @@ import { forms, HONEYPOT_FIELD, STARTED_FIELD, type Field, type FormState, type 
 const initialState: FormState = { status: "idle" };
 
 const inputClass =
-  "mt-1 block w-full rounded-xl border-2 border-dark/15 bg-white px-4 py-3 text-base text-dark placeholder:text-dark/40 focus:border-teal focus:outline-none aria-[invalid=true]:border-red";
+  "mt-1 block w-full rounded-xl border-2 border-dark/15 bg-white px-4 py-3 text-base text-dark placeholder:text-dark/50 focus:border-teal focus:outline-none aria-[invalid=true]:border-red";
 
 type Props = {
   type: FormType;
@@ -82,12 +82,12 @@ export function SiteForm({ type, defaults = {} }: Props) {
         />
       ))}
 
-      <p className="text-sm text-dark/60">Fields marked * are required.</p>
+      <p className="text-sm text-dark/75">Fields marked * are required.</p>
 
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-teal px-8 text-base font-bold text-white transition-colors hover:bg-teal-dark disabled:opacity-60 sm:w-auto"
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-azure px-8 text-base font-bold text-white transition-colors hover:bg-boundless disabled:opacity-60 sm:w-auto"
       >
         {pending ? "Sending…" : form.submitLabel}
       </button>
@@ -105,7 +105,7 @@ function FieldInput({ field, value, error }: { field: Field; value?: string | st
     </>
   );
   const hint = field.hint && (
-    <p id={`${id}-hint`} className="mt-1 text-sm text-dark/60">
+    <p id={`${id}-hint`} className="mt-1 text-sm text-dark/75">
       {field.hint}
     </p>
   );

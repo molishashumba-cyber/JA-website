@@ -29,22 +29,26 @@ export default async function DashboardPage() {
       <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-dark/10">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-lg font-extrabold text-dark">New form submissions</h2>
-          <Link href="/admin/submissions" className="text-sm font-bold text-teal hover:underline">
+          <Link href="/admin/submissions" className="text-sm font-bold text-azure hover:underline">
             See all ({total ?? 0}) →
           </Link>
         </div>
-        <dl className="mt-4 grid grid-cols-3 gap-3">
+        <ul className="mt-4 grid grid-cols-3 gap-3">
           {(Object.keys(counts) as (keyof typeof counts)[]).map((k) => (
-            <Link
-              key={k}
-              href={`/admin/submissions?type=${k}&status=new`}
-              className="rounded-xl bg-pearl p-3 text-center hover:ring-2 hover:ring-teal"
-            >
-              <dd className="text-3xl font-extrabold text-teal">{counts[k]}</dd>
-              <dt className="text-sm font-semibold text-dark/70">{FORM_NAMES[k]}</dt>
-            </Link>
+            <li key={k}>
+              <Link
+                href={`/admin/submissions?type=${k}&status=new`}
+                className="block rounded-xl bg-pearl p-3 text-center hover:ring-2 hover:ring-teal"
+              >
+                <span className="block text-3xl font-extrabold text-teal">{counts[k]}</span>
+                <span className="block text-sm font-semibold text-dark/80">
+                  {FORM_NAMES[k]}
+                  <span className="sr-only"> (new)</span>
+                </span>
+              </Link>
+            </li>
           ))}
-        </dl>
+        </ul>
       </section>
 
       <section className="mt-6 grid gap-6 md:grid-cols-2">
@@ -55,7 +59,7 @@ export default async function DashboardPage() {
               <li key={p.key}>
                 <Link href={`/admin/pages/${p.key}`} className="block rounded-lg px-3 py-2 hover:bg-pearl">
                   <span className="font-bold text-dark">{p.label}</span>
-                  <span className="block text-sm text-dark/60">{p.description}</span>
+                  <span className="block text-sm text-dark/75">{p.description}</span>
                 </Link>
               </li>
             ))}
@@ -68,7 +72,7 @@ export default async function DashboardPage() {
               <li key={c.key}>
                 <Link href={`/admin/content/${c.key}`} className="block rounded-lg px-3 py-2 hover:bg-pearl">
                   <span className="font-bold text-dark">{c.label}</span>
-                  <span className="block text-sm text-dark/60">{c.description}</span>
+                  <span className="block text-sm text-dark/75">{c.description}</span>
                 </Link>
               </li>
             ))}

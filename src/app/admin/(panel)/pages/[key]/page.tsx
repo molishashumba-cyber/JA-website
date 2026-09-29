@@ -38,7 +38,7 @@ export default async function EditPagePage(props: PageProps<"/admin/pages/[key]"
         title={page.label}
         description={page.description}
         actions={
-          <Link href={page.publicPath} target="_blank" className="text-sm font-bold text-teal hover:underline">
+          <Link href={page.publicPath} target="_blank" className="text-sm font-bold text-azure hover:underline">
             View on website ↗
           </Link>
         }
