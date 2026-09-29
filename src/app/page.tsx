@@ -51,13 +51,13 @@ export default async function HomePage() {
       {/* Milestone banner */}
       <section className="relative isolate overflow-hidden bg-lime text-dark">
         <BirdSymbol className="absolute -top-8 right-8 -z-10 hidden h-80 w-auto lg:block" />
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between md:py-16">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-12 sm:px-6 md:py-16">
           <div className="max-w-3xl">
             <p className="text-sm font-bold tracking-widest uppercase">Celebrating a milestone</p>
             <h2 className="mt-2 text-3xl leading-tight font-extrabold sm:text-5xl">{home.milestone.title}</h2>
             <p className="mt-3 text-lg font-medium">{home.milestone.text}</p>
           </div>
-          <Button href="/impact" variant="dark" className="self-start md:self-center">
+          <Button href="/impact" variant="dark" className="self-start">
             See our impact
           </Button>
         </div>
