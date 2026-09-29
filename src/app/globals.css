@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* JA brand palette (JA Worldwide Brand Guidelines 2026) */
+@theme {
+  --color-teal: #008b9c; /* Transforming Teal */
+  --color-teal-dark: #007482;
+  --color-lime: #8fc440; /* Leadership Lime */
+  --color-dark: #22404d; /* Immersive Blue-Black */
+  --color-aqua: #00c0ca; /* Enterprise Aqua */
+  --color-turquoise: #00a0af; /* Resilient Turquoise */
+  --color-azure: #28708b; /* Adaptable Azure */
+  --color-boundless: #285f74; /* Boundless Blue */
+  --color-pearl: #eef3f4; /* Possibility Pearl */
+  --color-ice: #c2edf0; /* Optimistic Ice */
+  --color-sky: #99d9df; /* Reach for the Sky Blue */
+  --color-cream: #f3f2b3; /* Confident Cream */
+  --color-yellow: #e3e24f; /* Empowered Yellow */
+  --color-jade: #46b17b; /* Start-Up Jade */
+  --color-red: #f65f4e; /* Real-World Red: accents only */
+
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-dark);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-aqua);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
