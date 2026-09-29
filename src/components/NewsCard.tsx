@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { formatDate } from "@/lib/dates";
 import type { NewsPost } from "@/lib/types";
 
 export function NewsCard({ post }: { post: NewsPost }) {
-  const date = new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const date = formatDate(post.date);
 
   return (
     <Link
