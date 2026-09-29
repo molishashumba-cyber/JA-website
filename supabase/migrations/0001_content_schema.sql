@@ -12,6 +12,7 @@ create table if not exists public.admin_users (
   role text not null default 'editor' check (role in ('admin', 'editor')),
   created_at timestamptz not null default now()
 );
+alter table public.admin_users enable row level security;
 
 -- True when the logged-in user is on the admin_users list.
 create or replace function public.is_staff()
@@ -55,6 +56,7 @@ create table if not exists public.settings (
   value jsonb not null default '{}'::jsonb,
   updated_at timestamptz not null default now()
 );
+alter table public.settings enable row level security;
 
 create table if not exists public.stats (
   id uuid primary key default gen_random_uuid(),
@@ -63,6 +65,7 @@ create table if not exists public.stats (
   sort_order int not null default 0,
   updated_at timestamptz not null default now()
 );
+alter table public.stats enable row level security;
 
 create table if not exists public.programs (
   id uuid primary key default gen_random_uuid(),
@@ -78,6 +81,7 @@ create table if not exists public.programs (
   published boolean not null default true,
   updated_at timestamptz not null default now()
 );
+alter table public.programs enable row level security;
 
 create table if not exists public.news_posts (
   id uuid primary key default gen_random_uuid(),
@@ -91,6 +95,7 @@ create table if not exists public.news_posts (
   published_at timestamptz,          -- empty = draft; a future date = scheduled
   updated_at timestamptz not null default now()
 );
+alter table public.news_posts enable row level security;
 
 create table if not exists public.events (
   id uuid primary key default gen_random_uuid(),
@@ -107,6 +112,7 @@ create table if not exists public.events (
   published boolean not null default true,
   updated_at timestamptz not null default now()
 );
+alter table public.events enable row level security;
 
 create table if not exists public.people (
   id uuid primary key default gen_random_uuid(),
@@ -119,6 +125,7 @@ create table if not exists public.people (
   published boolean not null default true,
   updated_at timestamptz not null default now()
 );
+alter table public.people enable row level security;
 
 create table if not exists public.partners (
   id uuid primary key default gen_random_uuid(),
@@ -129,6 +136,7 @@ create table if not exists public.partners (
   published boolean not null default true,
   updated_at timestamptz not null default now()
 );
+alter table public.partners enable row level security;
 
 create table if not exists public.impact_stories (
   id uuid primary key default gen_random_uuid(),
@@ -143,6 +151,7 @@ create table if not exists public.impact_stories (
   published boolean not null default true,
   updated_at timestamptz not null default now()
 );
+alter table public.impact_stories enable row level security;
 
 -- ─────────────────────────────────────────────────────────────
 -- Form submissions (contact, volunteer, partnership)
@@ -159,6 +168,7 @@ create table if not exists public.form_submissions (
   status text not null default 'new' check (status in ('new', 'handled')),
   created_at timestamptz not null default now()
 );
+alter table public.form_submissions enable row level security;
 
 create index if not exists form_submissions_created_idx on public.form_submissions (created_at desc);
 create index if not exists news_posts_published_idx on public.news_posts (published_at desc);
@@ -182,16 +192,7 @@ $$;
 --   • Visitors can send a form, but never read submissions.
 --   • Logged-in team members on admin_users can edit everything.
 -- ─────────────────────────────────────────────────────────────
-alter table public.admin_users enable row level security;
-alter table public.settings enable row level security;
-alter table public.stats enable row level security;
-alter table public.programs enable row level security;
-alter table public.news_posts enable row level security;
-alter table public.events enable row level security;
-alter table public.people enable row level security;
-alter table public.partners enable row level security;
-alter table public.impact_stories enable row level security;
-alter table public.form_submissions enable row level security;
+-- (Row Level Security is switched on right after each table is created, above.)
 
 -- admin_users: staff can see the list; only admins manage it
 drop policy if exists "staff read admin list" on public.admin_users;
