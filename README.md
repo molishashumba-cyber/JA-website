@@ -11,7 +11,7 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 | 1     | Foundations: brand colours, Montserrat font, logo, header, footer, mobile menu | Done            |
 | 2     | Home page design (placeholder content)                                         | Done            |
 | 3     | Content store (Supabase database + photo storage)                              | Done, connected |
-| 4     | All public pages                                                               |                 |
+| 4     | All public pages                                                               | Done            |
 | 5     | Forms (contact, volunteer, partnership)                                        |                 |
 | 6     | Admin area with secure login and submissions dashboard                         |                 |
 | 7     | Load real content                                                              |                 |
