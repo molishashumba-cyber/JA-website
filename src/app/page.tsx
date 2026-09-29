@@ -2,6 +2,7 @@ import Image from "next/image";
 import { BirdSymbol } from "@/components/BirdSymbol";
 import { Button } from "@/components/Button";
 import { NewsCard } from "@/components/NewsCard";
+import { PartnerLogo } from "@/components/PartnerLogo";
 import { ProgramCard } from "@/components/ProgramCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { getHomeContent, getLatestNews, getPartners, getPrograms } from "@/lib/content";
@@ -101,7 +102,9 @@ export default async function HomePage() {
               </li>
             ))}
           </ul>
-          <p className="mt-2 text-sm font-semibold text-dark/60 sm:hidden">Swipe to see all {programs.length} programs →</p>
+          <p className="mt-2 text-sm font-semibold text-dark/60 sm:hidden">
+            Swipe to see all {programs.length} programs →
+          </p>
           <div className="mt-6 sm:hidden">
             <Button href="/programs" variant="outlineDark" className="w-full">
               All programs
@@ -141,23 +144,25 @@ export default async function HomePage() {
       </section>
 
       {/* Latest news */}
-      <section className="bg-pearl py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="Latest news" title="Stories from the JA Zambia community" />
-            <Button href="/news" variant="outlineDark" className="self-start md:self-end">
-              All news
-            </Button>
+      {news.length > 0 && (
+        <section className="bg-pearl py-16 sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <SectionHeading eyebrow="Latest news" title="Stories from the JA Zambia community" />
+              <Button href="/news" variant="outlineDark" className="self-start md:self-end">
+                All news
+              </Button>
+            </div>
+            <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {news.map((post) => (
+                <li key={post.slug}>
+                  <NewsCard post={post} />
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {news.map((post) => (
-              <li key={post.slug}>
-                <NewsCard post={post} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Get involved */}
       <section className="relative isolate overflow-hidden bg-dark py-16 text-white sm:py-24">
@@ -203,21 +208,20 @@ export default async function HomePage() {
       </section>
 
       {/* Partners */}
-      <section className="bg-white py-14 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading center eyebrow="Our partners" title="Made possible by organisations who believe in youth" />
-          <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {partners.map((partner) => (
-              <li
-                key={partner.name}
-                className="flex h-24 items-center justify-center rounded-xl border-2 border-dashed border-dark/15 text-sm font-semibold text-dark/50"
-              >
-                {partner.name} logo
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {partners.length > 0 && (
+        <section className="bg-white py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <SectionHeading center eyebrow="Our partners" title="Made possible by organisations who believe in youth" />
+            <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+              {partners.map((partner) => (
+                <li key={partner.name}>
+                  <PartnerLogo partner={partner} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </>
   );
 }

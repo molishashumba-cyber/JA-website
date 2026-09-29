@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ComingSoon } from "@/components/ComingSoon";
 import { PageHero } from "@/components/PageHero";
-import { getLatestNews } from "@/lib/content";
+import { getLatestNews, getNewsPost } from "@/lib/content";
 
 export async function generateStaticParams() {
   const posts = await getLatestNews(100);
@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "News" };
 
 export default async function NewsPostPage(props: PageProps<"/news/[slug]">) {
   const { slug } = await props.params;
-  const post = (await getLatestNews(100)).find((p) => p.slug === slug);
+  const post = await getNewsPost(slug);
   if (!post) notFound();
 
   return (

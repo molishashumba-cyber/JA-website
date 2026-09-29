@@ -48,6 +48,7 @@ export const programs: Program[] = [
     audience: "Primary school",
     summary: "Fun cartoons and activities that teach children to earn, save, spend and donate wisely.",
     accent: "lime",
+    photo: { src: "/photos/cha-ching-reader.jpg", alt: "A pupil reading a Cha-Ching comic book in class" },
   },
   {
     slug: "company-program",
@@ -63,6 +64,7 @@ export const programs: Program[] = [
     audience: "Company Program teams",
     summary: "The national competition where the best student companies pitch to judges for the top prize.",
     accent: "aqua",
+    photo: { src: "/photos/coy-stage.jpg", alt: "Students presenting on stage at Company of the Year" },
   },
   {
     slug: "girls-lead-camp",
@@ -140,10 +142,10 @@ export const news: NewsPost[] = [
 ];
 
 export const partners: Partner[] = [
-  { name: "Partner 1" },
-  { name: "Partner 2" },
-  { name: "Partner 3" },
-  { name: "Partner 4" },
-  { name: "Partner 5" },
-  { name: "Partner 6" },
+  { name: "Partner 1 logo" },
+  { name: "Partner 2 logo" },
+  { name: "Partner 3 logo" },
+  { name: "Partner 4 logo" },
+  { name: "Partner 5 logo" },
+  { name: "Partner 6 logo" },
 ];
