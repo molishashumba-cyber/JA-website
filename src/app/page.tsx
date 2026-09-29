@@ -65,19 +65,21 @@ export default async function HomePage() {
       </section>
 
       {/* Impact stats */}
-      <section aria-labelledby="stats-heading" className="bg-white">
-        <h2 id="stats-heading" className="sr-only">
-          Our impact in numbers
-        </h2>
-        <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-dark/10 lg:grid-cols-4">
-          {home.stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col-reverse bg-white px-4 py-8 text-center sm:py-12">
-              <dt className="mt-1 text-sm font-semibold text-dark/70 sm:text-base">{stat.label}</dt>
-              <dd className="text-3xl font-extrabold text-teal sm:text-5xl">{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {home.stats.length > 0 && (
+        <section aria-labelledby="stats-heading" className="bg-white">
+          <h2 id="stats-heading" className="sr-only">
+            Our impact in numbers
+          </h2>
+          <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-dark/10 lg:grid-cols-4">
+            {home.stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col-reverse bg-white px-4 py-8 text-center sm:py-12">
+                <dt className="mt-1 text-sm font-semibold text-dark/70 sm:text-base">{stat.label}</dt>
+                <dd className="text-3xl font-extrabold text-teal sm:text-5xl">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       {/* Programs */}
       <section className="bg-pearl py-16 sm:py-24">
