@@ -13,7 +13,7 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 | 3     | Content store (Supabase database + photo storage)                              | Done, connected |
 | 4     | All public pages                                                               | Done            |
 | 5     | Forms (contact, volunteer, partnership)                                        | Done            |
-| 6     | Admin area with secure login and submissions dashboard                         |                 |
+| 6     | Admin area with secure login and submissions dashboard                         | Done            |
 | 7     | Load real content                                                              |                 |
 | 8     | Polish, speed and accessibility testing, team guide                            |                 |
 
@@ -23,6 +23,8 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 - `src/components/`: reusable building blocks (header, footer, buttons, cards)
 - `src/content/placeholder.ts`: starter text and numbers, shown until Supabase is connected
 - `src/lib/content.ts`: the one place pages read content from (Supabase when connected)
+- `src/app/admin/`: the admin area (login, dashboard, editors, submissions, team access)
+- `src/lib/admin/schema.ts`: what the admin area can edit, and each field's label and help text
 - `supabase/migrations/`: the database design and security rules
 - `supabase/seed.sql`: starter content for the database (generated with `npm run seed:generate`)
 - `public/brand/`: official JA Zambia logo files (from the brand `.ai` file)
@@ -39,6 +41,22 @@ Built with [Next.js](https://nextjs.org) and hosted on Vercel. Content will be s
 Never share or add the **secret** / **service_role** key: the website doesn't need it.
 
 Tip: some ways of copying cut long text off at around 5,000 characters. Before clicking **Run**, scroll to the end of the pasted text and check it matches the end of the file. If it doesn't, paste the file in smaller parts, splitting only between statements (after a `;`).
+
+## Admin area
+
+The admin area is at **/admin** on the website. Team members log in with an email and password.
+
+**First-time setup (once):**
+
+1. In Supabase, go to **Authentication → Users → Add user → Create new user**. Enter your email and a password, and tick **Auto Confirm User**.
+2. In **SQL Editor → New query**, paste `supabase/migrations/0002_staff_access.sql` and run it, then paste `supabase/first-admin.sql` and run it. This makes that first login an admin.
+3. Recommended: in **Authentication → Sign In / Providers**, turn off **Allow new users to sign up**. (Even if someone signs up, they can't see or change anything without being given access.)
+
+**Adding a colleague:** create their login in Supabase (step 1 above), then give them access on the admin area's **Team access** page. **Editors** can edit everything and manage submissions; **admins** can also delete submissions and manage team access.
+
+**Forgotten password:** an admin can set a new one in Supabase (**Authentication → Users → … → Reset password** or delete and re-create the user). Everyone can change their own password under **My account**.
+
+Changes saved in the admin area appear on the website immediately.
 
 ## Form email alerts (optional)
 
@@ -62,5 +80,5 @@ npm install
 npm run dev     # local preview at http://localhost:3000
 npm run lint
 npm run build
-npm run test:db # checks database setup and security rules
+npm run test:db # checks database setup, security rules and team access
 ```
